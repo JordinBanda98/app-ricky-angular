@@ -1,0 +1,29 @@
+<div *ngIf="loading" class="d-flex align-items-center">
+  <strong>Loading...</strong>
+  <div class="spinner-border ml-auto" role="status" aria-hidden="true"></div>
+</div>
+<div *ngIf="!loading" class="row">
+  <div class="col-6">
+    <img [src]="peronsaje.image" />
+  </div>
+  <div class="col-6">
+    <h2>{{peronsaje.name }}</h2>
+    <h3> Estado: {{peronsaje.status }}</h3>
+    <h3> Genero: {{peronsaje.gender }}</h3>
+    <a> Locación: {{peronsaje.location.name }}</a>
+
+    <a class="nav-link btn btn-primary" [routerLink]="['/lugares', 'lista',peronsaje.location.url]">Visitar lugar</a>
+
+
+  </div>
+</div>
+
+<div class="card-columns">
+    <div *ngFor="let lugar of lugares" class="card">
+        <div class="card-body">
+          <h2 class="card-title">{{ lugar.name }}</h2>
+          <p class="card-text">Tipo: {{lugar.type}}</p>
+          <p class="card-text"><small class="text-muted">dimensión{{ lugar.dimension}}</small></p>
+        </div>
+      </div>
+</div>
